@@ -1,40 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
-//2.Write a C# program to display student Id and Name using automatic properties.
-namespace lab1q2
+namespace lab1q3
 {
-    internal class Program
+    internal class Array
     {
-        class Student
+        static void Main(string[] args)
         {
-            public String Name
+            // Define and initialize an array
+            int[] numbers = { 1, 2, 3, 4 };
+
+            Console.WriteLine("Original Array:");
+            // Print the original array
+            foreach (int num in numbers)
             {
-                get;
-                set;
+                Console.Write(num + " ");
             }
-            public int Id
+
+            // Call the ReverseArray function to reverse the array
+            ReverseArray(numbers);
+
+            Console.WriteLine("\nReversed Array:");
+            // Print the reversed array
+            foreach (int num in numbers)
             {
-                get;
-                set;
+                Console.Write(num + " ");
             }
-            public Student(String name, int id)
+
+            Console.ReadKey();
+        }
+
+        // Function to reverse the array
+        static void ReverseArray(int[] arr)
+        {
+            int start = 0;
+            int end = arr.Length - 1;
+
+            // Swap elements from start and end until the middle of the array is reached
+            while (start < end)
             {
-                Name = name;
-                Id = id;
-            }
-            public void display()
-            {
-                Console.WriteLine($"My name is {Name} and my ID is {Id}");
-            }
-            static void Main(string[] args)
-            {
-                Student s = new Student("Rijan", 22081038);
-                s.display();
+                // Swap the elements
+                int temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+
+                // Move the pointers towards the center
+                start++;
+                end--;
             }
         }
     }
