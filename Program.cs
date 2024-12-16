@@ -1,37 +1,41 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace lab1q6
+//2.Write a C# program to display student Id and Name using automatic properties.
+namespace lab1q2
 {
-    interface ILength
+    internal class Program
     {
-        double Length { get; set; }
-    }
-
-    interface IWidth
-    {
-        double Width { get; set; }
-    }
-
-    class Rectangle : ILength, IWidth
-    {
-        public double Length { get; set; }
-        public double Width { get; set; }
-
-        public double CalculateArea()
+        class Student
         {
-            return Length * Width;
-        }
-    }
-
-    class q6
-    {
-        static void Main(string[] args)
-        {
-            Rectangle rectangle = new Rectangle();
-            rectangle.Length = 5;
-            rectangle.Width = 3;
-            Console.WriteLine("Area of rectangle: " + rectangle.CalculateArea());
-            Console.ReadKey();
+            public String Name
+            {
+                get;
+                set;
+            }
+            public int Id
+            {
+                get;
+                set;
+            }
+            public Student(String name, int id)
+            {
+                Name = name;
+                Id = id;
+            }
+            public void display()
+            {
+                Console.WriteLine($"My name is {Name} and my ID is {Id}");
+            }
+            static void Main(string[] args)
+            {
+                Student s = new Student("Rijan", 22081038);
+                s.display();
+            }
         }
     }
 }
