@@ -1,51 +1,36 @@
 ﻿using System;
 
-namespace lab1q7
+namespace lab1q6
 {
-    class Shape
+    interface ILength
     {
-        public virtual void Draw()
+        double Length { get; set; }
+    }
+
+    interface IWidth
+    {
+        double Width { get; set; }
+    }
+
+    class Rectangle : ILength, IWidth
+    {
+        public double Length { get; set; }
+        public double Width { get; set; }
+
+        public double CalculateArea()
         {
-            Console.WriteLine("Drawing a generic shape.");
+            return Length * Width;
         }
     }
 
-    class Circle : Shape
-    {
-        public override void Draw()
-        {
-            Console.WriteLine("Drawing a circle.");
-        }
-    }
-
-    class Square : Shape
-    {
-        public override void Draw()
-        {
-            Console.WriteLine("Drawing a square.");
-        }
-    }
-
-    class Triangle : Shape
-    {
-        public override void Draw()
-        {
-            Console.WriteLine("Drawing a triangle.");
-        }
-    }
-
-    class q7
+    class q6
     {
         static void Main(string[] args)
         {
-            Shape shape1 = new Circle();
-            Shape shape2 = new Square();
-            Shape shape3 = new Triangle();
-
-            shape1.Draw();
-            shape2.Draw();
-            shape3.Draw();
-
+            Rectangle rectangle = new Rectangle();
+            rectangle.Length = 5;
+            rectangle.Width = 3;
+            Console.WriteLine("Area of rectangle: " + rectangle.CalculateArea());
             Console.ReadKey();
         }
     }
